@@ -1,6 +1,6 @@
 #!/bin/sh
 # Created by https://www.hostingtermurah.net
-# Modified by 0123456
+# Modified by gugun09
 
 #Requirement
 if [ ! -e /usr/bin/curl ]; then
@@ -184,12 +184,12 @@ sed -i 's|export KEY_SIZE=1024|export KEY_SIZE=2048|' /etc/openvpn/easy-rsa/2.0/
 sed -i 's|export KEY_COUNTRY="US"|export KEY_COUNTRY="ID"|' /etc/openvpn/easy-rsa/2.0/vars
 sed -i 's|export KEY_PROVINCE="CA"|export KEY_PROVINCE="Albay"|' /etc/openvpn/easy-rsa/2.0/vars
 sed -i 's|export KEY_CITY="SanFrancisco"|export KEY_CITY="Legazpi"|' /etc/openvpn/easy-rsa/2.0/vars
-sed -i 's|export KEY_ORG="Fort-Funston"|export KEY_ORG="0123456"|' /etc/openvpn/easy-rsa/2.0/vars
+sed -i 's|export KEY_ORG="Fort-Funston"|export KEY_ORG="gugun09"|' /etc/openvpn/easy-rsa/2.0/vars
 sed -i 's|export KEY_EMAIL="me@myhost.mydomain"|export KEY_EMAIL="rdbtx123@gmail.com"|' /etc/openvpn/easy-rsa/2.0/vars
 sed -i 's|export KEY_EMAIL=mail@host.domain|export KEY_EMAIL=rdbtx123@gmail.com|' /etc/openvpn/easy-rsa/2.0/vars
-sed -i 's|export KEY_CN=changeme|export KEY_CN="0123456"|' /etc/openvpn/easy-rsa/2.0/vars
+sed -i 's|export KEY_CN=changeme|export KEY_CN="gugun09"|' /etc/openvpn/easy-rsa/2.0/vars
 sed -i 's|export KEY_NAME=changeme|export KEY_NAME=server|' /etc/openvpn/easy-rsa/2.0/vars
-sed -i 's|export KEY_OU=changeme|export KEY_OU=0123456|' /etc/openvpn/easy-rsa/2.0/vars
+sed -i 's|export KEY_OU=changeme|export KEY_OU=gugun09|' /etc/openvpn/easy-rsa/2.0/vars
 # create PKI
 . /etc/openvpn/easy-rsa/2.0/vars
 . /etc/openvpn/easy-rsa/2.0/clean-all
@@ -243,7 +243,7 @@ mkdir -p /home/vps/public_html
 cat > /home/vps/public_html/client.ovpn <<-END
 # OpenVPN Configuration by HostingTermurah.net
 # (Official Partner VPS-Murah.net)
-# Modified by 0123456
+# Modified by gugun09
 client
 proto tcp
 persist-key
@@ -517,7 +517,7 @@ echo "--------------------------- Configuration Setup Server -------------------
 echo "                         Copyright HostingTermurah.net                          "
 echo "                        https://www.hostingtermurah.net                         "
 echo "               Created By Steven Indarto(fb.com/stevenindarto2)                 "
-echo "                                Modified by 0123456                             "
+echo "                                Modified by gugun09                             "
 echo "--------------------------------------------------------------------------------"
 echo ""  | tee -a log-install.txt
 echo "Server Information"  | tee -a log-install.txt
@@ -560,4 +560,4 @@ echo "   - MRTG                    : http://$MYIP:85/mrtg/"  | tee -a log-instal
 echo "   - Installation Log        : cat /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "----------- Script Created By Steven Indarto(fb.com/stevenindarto2) ------------"
-echo "------------------------------ Modified by 0123456 -----------------------------"
+echo "------------------------------ Modified by gugun09 -----------------------------"

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Created by https://www.hostingtermurah.net
-# Modified by 0123456
+# Modified by gugun09
 
 #Requirement
 if [ ! -e /usr/bin/curl ]; then
@@ -98,7 +98,7 @@ cd
 wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/daybreakersx/premscript/master/c7/nginx.conf"
 sed -i 's/www-data/nginx/g' /etc/nginx/nginx.conf
 mkdir -p /home/vps/public_html
-echo "<pre>Setup by 0123456</pre>" > /home/vps/public_html/index.html
+echo "<pre>Setup by gugun09</pre>" > /home/vps/public_html/index.html
 echo "<?php phpinfo(); ?>" > /home/vps/public_html/info.php
 rm /etc/nginx/conf.d/*
 wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/daybreakersx/premscript/master/c7/vps.conf"
@@ -322,7 +322,7 @@ echo "--------------------------- Setup Server Information ---------------------
 echo "                         Copyright HostingTermurah.net                          "
 echo "                        https://www.hostingtermurah.net                         "
 echo "               Created By Steven Indarto(fb.com/stevenindarto2)                 "
-echo "                              Modified by 0123456                               "
+echo "                              Modified by gugun09                               "
 echo "--------------------------------------------------------------------------------"
 echo ""  | tee -a log-install.txt
 echo "Server Included"  | tee -a log-install.txt
@@ -363,4 +363,4 @@ echo "   - MRTG                    : http://$MYIP/mrtg/"  | tee -a log-install.t
 echo "   - Installation Log        : cat /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "----------- Script Created By Steven Indarto(fb.com/stevenindarto2) ------------"
-echo "------------------------------ Modified by 0123456 -----------------------------"
+echo "------------------------------ Modified by gugun09 -----------------------------"
