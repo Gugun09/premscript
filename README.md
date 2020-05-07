@@ -60,7 +60,7 @@ Premium autoscript installer used to install SSH, STUNNEL, OVPN, and PPTP VPN on
 
 - PPTP VPN : 1732
 
-- Badvpn : 7300
+- Badvpn : port 7200, 7300, 7400, 7500, 7600, 7700, 7800, 7900"
 
 - Nginx : 85
 
