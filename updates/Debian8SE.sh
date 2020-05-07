@@ -297,14 +297,14 @@ apt-get -y install openvpn easy-rsa openssl iptables
 cp -r /usr/share/easy-rsa/ /etc/openvpn
 mkdir /etc/openvpn/easy-rsa/keys
 # replace bits
-sed -i 's|export KEY_COUNTRY="US"|export KEY_COUNTRY="PH"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_PROVINCE="CA"|export KEY_PROVINCE="Albay"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_CITY="SanFrancisco"|export KEY_CITY="Legazpi"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_COUNTRY="US"|export KEY_COUNTRY="ID"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_PROVINCE="CA"|export KEY_PROVINCE="Bulungan"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_CITY="SanFrancisco"|export KEY_CITY="Samarinda"|' /etc/openvpn/easy-rsa/vars
 sed -i 's|export KEY_ORG="Fort-Funston"|export KEY_ORG="IIEE"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_EMAIL="me@myhost.mydomain"|export KEY_EMAIL="rdbtx123@gmail.com"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_OU="MyOrganizationalUnit"|export KEY_OU="daybreakersx"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_NAME="EasyRSA"|export KEY_NAME="daybreakersx"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_OU=changeme|export KEY_OU=daybreakersx|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_EMAIL="me@myhost.mydomain"|export KEY_EMAIL="gratisan009@gmail.com"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_OU="MyOrganizationalUnit"|export KEY_OU="gugun09"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_NAME="EasyRSA"|export KEY_NAME="gugun09"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_OU=changeme|export KEY_OU=gugun09|' /etc/openvpn/easy-rsa/vars
 #Create Diffie-Helman Pem
 openssl dhparam -out /etc/openvpn/dh2048.pem 2048
 # Create PKI
@@ -361,8 +361,6 @@ END
 #Create OpenVPN Config
 mkdir -p /home/vps/public_html
 cat > /home/vps/public_html/client.ovpn <<-END
-# OpenVPN Configuration by HostingTermurah.net
-# (Official Partner VPS-Murah.net)
 # Modified by gugun09
 
 client
@@ -439,9 +437,23 @@ wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/daybreakersx/pr
 if [ "$OS" == "x86_64" ]; then
   wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/daybreakersx/premscript/master/badvpn-udpgw64"
 fi
+sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200' /etc/rc.local
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
+sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7400' /etc/rc.local
+sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7500' /etc/rc.local
+sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7600' /etc/rc.local
+sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7700' /etc/rc.local
+sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800' /etc/rc.local
+sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900' /etc/rc.local
 chmod +x /usr/bin/badvpn-udpgw
-screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:730
+screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200
+screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300
+screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7400
+screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7500
+screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7600
+screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7700
+screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800
+screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900
 
 # install ddos deflate
 cd
@@ -498,8 +510,22 @@ COMMIT
 -A INPUT -p udp --dport 1732  -m state --state NEW -j ACCEPT
 -A INPUT -p tcp --dport 3128  -m state --state NEW -j ACCEPT
 -A INPUT -p udp --dport 3128  -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 7200  -m state --state NEW -j ACCEPT
+-A INPUT -p udp --dport 7200  -m state --state NEW -j ACCEPT
 -A INPUT -p tcp --dport 7300  -m state --state NEW -j ACCEPT
 -A INPUT -p udp --dport 7300  -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 7400  -m state --state NEW -j ACCEPT
+-A INPUT -p udp --dport 7400  -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 7500  -m state --state NEW -j ACCEPT
+-A INPUT -p udp --dport 7500  -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 7600  -m state --state NEW -j ACCEPT
+-A INPUT -p udp --dport 7600  -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 7700  -m state --state NEW -j ACCEPT
+-A INPUT -p udp --dport 7700  -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 7800  -m state --state NEW -j ACCEPT
+-A INPUT -p udp --dport 7800  -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 7900  -m state --state NEW -j ACCEPT
+-A INPUT -p udp --dport 7900  -m state --state NEW -j ACCEPT
 -A INPUT -p tcp --dport 8000  -m state --state NEW -j ACCEPT
 -A INPUT -p udp --dport 8000  -m state --state NEW -j ACCEPT
 -A INPUT -p tcp --dport 8080  -m state --state NEW -j ACCEPT
