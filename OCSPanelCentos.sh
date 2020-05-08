@@ -31,7 +31,7 @@ echo ""
 echo ""
 echo "Configure Database OCS Panel Name"
 echo "(Make sure the database name contains no spaces, symbols, or special characters.)"
-read -p "Database Name    : " -e -i daybreakersx NamaDatabase
+read -p "Database Name    : " -e -i gugun09 NamaDatabase
 echo "Input MySQL Password:"
 echo "(Use different Password for your database, dont use VPS password.)"
 read -p "Database Password: " -e -i gugun09 PasswordDatabase
@@ -47,10 +47,10 @@ rpm -Uvh epel-release-6-8.noarch.rpm
 rpm -Uvh remi-release-6.rpm
 
 if [ "$OS" == "x86_64" ]; then
-  wget https://raw.githubusercontent.com/daybreakersx/premscript/master/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+  wget https://raw.githubusercontent.com/gugun09/premscript/master/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
   rpm -Uvh rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 else
-  wget https://raw.githubusercontent.com/daybreakersx/premscript/master/rpmforge-release-0.5.3-1.el6.rf.i686.rpm
+  wget https://raw.githubusercontent.com/gugun09/premscript/master/rpmforge-release-0.5.3-1.el6.rf.i686.rpm
   rpm -Uvh rpmforge-release-0.5.3-1.el6.rf.i686.rpm
 fi
 
